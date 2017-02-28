@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+              android:orientation="vertical"
+             android:layout_height="match_parent"
+             tools:context="com.example.administrator.wit_live.Fragment.remen_Fragment">
+
+    <RelativeLayout
+        android:id="@+id/lunbo_r"
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+        <com.example.administrator.wit_live.viewpager.NewViewPager
+            android:id="@+id/main_lunbo"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@mipmap/lunbo">
+
+        </com.example.administrator.wit_live.viewpager.NewViewPager>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/main_lunbo"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:id="@+id/ll_points"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <!-- 存放显示的点图，是根据广告的数量来定的 -->
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
