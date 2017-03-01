@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -22,13 +24,14 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
     private List<Fragment> mList;
     private ViewPager mPager;
     private MainAdapter madapter;
     private RadioGroup mRadioGroup;
     private RadioButton tab1, tab2;
+    private ImageButton vvplsyown;
 
     private main_main_activity mMain_main_activity;
     private main_my_Activity mMain_my_activity;
@@ -43,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
         LoadTXZBoVrsion();
 
 
-        Intent intent = new Intent(this, ZhiBoMineActivity.class);
-        startActivity(intent);
+
     }
 
     private void LoadTXZBoVrsion() {
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initview() {
         mPager = (ViewPager) findViewById(R.id.main_viewpager);
+        vvplsyown = (ImageButton) findViewById(R.id.vvplsyown);
         mPager.setOffscreenPageLimit(2);
         mList = getData();
         madapter = new MainAdapter(getSupportFragmentManager(), mList);
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         tab1 = (RadioButton) findViewById(R.id.main_radio_btn_1);
         tab2 = (RadioButton) findViewById(R.id.main_radio_btn_2);
+        vvplsyown.setOnClickListener(this);
 
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -94,6 +98,19 @@ public class MainActivity extends AppCompatActivity {
         mList.add(mMain_my_activity);
 
         return mList;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+
+        switch (id){
+
+            case  R.id.vvplsyown:
+                Intent intent = new Intent(this, ZhiBoMineActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
     public class TabOnPageChangeListener implements ViewPager.OnPageChangeListener {

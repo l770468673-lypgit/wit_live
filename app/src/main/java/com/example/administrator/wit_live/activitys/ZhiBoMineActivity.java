@@ -2,6 +2,7 @@ package com.example.administrator.wit_live.activitys;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.example.administrator.wit_live.R;
 import com.tencent.rtmp.TXLivePushConfig;
@@ -23,7 +24,7 @@ public class ZhiBoMineActivity extends AppCompatActivity {
     private TXCloudVideoView video_view;
     private TXLivePushConfig mLivePushConfig;
 
-    public  String rtmpUrl = "rtmp://8076.livepush.myqcloud.com/live/8076_d1e19a5b90?bizid=8076&txSecret=3863862377a618f96da998824e82613e&txTime=58B6EFFF";
+    public String rtmpUrl = "rtmp://8076.livepush.myqcloud.com/live/8076_d1e19a5b90?bizid=8076&txSecret=3863862377a618f96da998824e82613e&txTime=58B6EFFF";
     private TXLivePusher mMLivePusher;
 
 
@@ -45,13 +46,15 @@ public class ZhiBoMineActivity extends AppCompatActivity {
         mMLivePusher.setConfig(mLivePushConfig);
 
         //  kaishi 推流
-       mMLivePusher.startPusher(rtmpUrl);
+        mMLivePusher.startPusher(rtmpUrl.trim());
+        video_view.setVisibility(View.VISIBLE);
 
+        mMLivePusher.startCameraPreview(video_view);
 
 
     }
 
     private void initview() {
-        video_view= (TXCloudVideoView) findViewById(R.id.video_view);
+        video_view = (TXCloudVideoView) findViewById(R.id.video_view);
     }
 }
