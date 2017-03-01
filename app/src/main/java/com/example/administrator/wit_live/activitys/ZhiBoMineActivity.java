@@ -23,7 +23,7 @@ public class ZhiBoMineActivity extends AppCompatActivity {
     private TXCloudVideoView video_view;
     private TXLivePushConfig mLivePushConfig;
 
-    public  String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
+    public  String rtmpUrl = "rtmp://8076.livepush.myqcloud.com/live/8076_d1e19a5b90?bizid=8076&txSecret=3863862377a618f96da998824e82613e&txTime=58B6EFFF";
     private TXLivePusher mMLivePusher;
 
 

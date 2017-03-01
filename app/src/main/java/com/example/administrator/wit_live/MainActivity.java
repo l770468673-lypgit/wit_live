@@ -1,5 +1,6 @@
 package com.example.administrator.wit_live;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -11,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.administrator.wit_live.Adapter.MainAdapter;
+import com.example.administrator.wit_live.activitys.ZhiBoMineActivity;
 import com.example.administrator.wit_live.main_fragment.main_main_activity;
 import com.example.administrator.wit_live.main_fragment.main_my_Activity;
 import com.tencent.rtmp.TXLivePusher;
@@ -39,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
         initview();
 
         LoadTXZBoVrsion();
+
+
+        Intent intent = new Intent(this, ZhiBoMineActivity.class);
+        startActivity(intent);
     }
 
     private void LoadTXZBoVrsion() {
