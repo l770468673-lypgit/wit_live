@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import com.example.administrator.wit_live.Adapter.MainAdapter;
 import com.example.administrator.wit_live.main_fragment.main_main_activity;
 import com.example.administrator.wit_live.main_fragment.main_my_Activity;
+import com.tencent.rtmp.TXLivePusher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     private List<Fragment> mList;
     private ViewPager mPager;
     private MainAdapter madapter;
@@ -34,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initview();
+
+        LoadTXZBoVrsion();
+    }
+
+    private void LoadTXZBoVrsion() {
+
+        int[] sdkver = TXLivePusher.getSDKVersion();
+        if (sdkver != null && sdkver.length >= 3) {
+            Log.d(TAG,"rtmp sdk version is:" + sdkver[0] + "." + sdkver[1] + "." + sdkver[2]);
+        }
+
     }
 
     private void initview() {
